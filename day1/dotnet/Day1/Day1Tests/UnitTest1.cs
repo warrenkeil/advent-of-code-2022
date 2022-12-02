@@ -24,4 +24,10 @@ public class Tests
     var highestCalories = CalorieCounter.CountElfCalories(elfCalorieData);
     Assert.AreEqual(24000, highestCalories);
   }
+
+  [Test]
+  public void CountTopThreeElfCalories_WhenGiveTestData_ShouldReturnCorrectCalories()
+  {
+    var topThreeCalories = CalorieCounter.CountElfCalories(elfCalorieData, true);
+  }
 }
