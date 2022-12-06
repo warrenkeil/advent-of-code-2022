@@ -42,19 +42,23 @@ pub fn get_vecs_from_data(data: Vec<String>) -> Vec<Vec<String>> {
     }
  
     let mut vecs: Vec<Vec<String>> = Vec::new();
-    for line in &data {
-        let vec = line.split(",").map(|s| s.to_string()).collect();
-        vecs.push(vec);
+    for number in 1..max_number {
+        // let mut vec: Vec<String> = line.split(",").map(|s| s.to_string()).collect();
+        // let mut vec = Vec::new();
+        vecs.push(vec!());
     }
 
     // add data to vecs
     for i in (0..index-1).rev() {
         for j in 0..max_number {
             let col_num = ((j*4)+1) as usize;
-            println!("col_num: {}", col_num);
+            // println!("col_num: {}", col_num);
             let char_num = data[i].chars().nth(col_num).unwrap();
-            println!("char_num: {}", char_num);
-            vecs[j as usize].push(char_num.to_string());
+            println!("j is: {}", j);
+            if char_num != ' ' {
+                println!("char_num: {}", char_num);
+                vecs[j as usize].push(char_num.to_string());
+            }
         }
     }
     println!("vecs: {:?}", vecs);
